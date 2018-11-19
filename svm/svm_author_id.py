@@ -19,14 +19,10 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-
-features_train = features_train[:len(features_train)/100] 
-labels_train = labels_train[:len(labels_train)/100] 
-
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
-C_values = [10, 100, 1000, 10000]
+C_values = [10000]
 
 for C in C_values:
     clf = SVC(kernel='rbf', C=C)
