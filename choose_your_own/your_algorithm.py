@@ -24,7 +24,7 @@ plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
 plt.legend()
 plt.xlabel("bumpiness")
 plt.ylabel("grade")
-plt.show()
+# plt.show()
 ################################################################################
 
 
@@ -32,13 +32,19 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+def getSVM(features, labels):
+    from sklearn.svm import OneClassSVM, LinearSVC, SVC
+    clff = SVC(kernel='rbf', C=10000)
+    clff.fit(features, labels)
+    return clff
 
 
+clf = getSVM(features_train, labels_train)
 
-
-
+# clf = None
 
 try:
     prettyPicture(clf, features_test, labels_test)
+    plt.show()
 except NameError:
     pass
