@@ -20,11 +20,17 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
+from sklearn.svm import SVC
+clf = SVC(kernel='linear')
 
+t0 = time()
+clf.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"
 
-#########################################################
-### your code goes here ###
+t1 = time()
+y_pred = clf.predict(features_test)
+print "prediction time:", round(time()-t1, 3), "s"
 
-#########################################################
-
-
+from sklearn.metrics import accuracy_score
+score = accuracy_score(labels_test, y_pred)
+print(score)
