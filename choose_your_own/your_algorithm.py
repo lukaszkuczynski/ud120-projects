@@ -34,7 +34,7 @@ plt.ylabel("grade")
 
 def getSVM(features, labels):
     from sklearn.svm import OneClassSVM, LinearSVC, SVC
-    clff = SVC(kernel='rbf', C=10000)
+    clff = SVC(kernel='rbf', C=10000, gamma=2000)
     clff.fit(features, labels)
     return clff
 
