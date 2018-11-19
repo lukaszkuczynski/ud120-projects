@@ -22,8 +22,8 @@ features_train, features_test, labels_train, labels_test = preprocess()
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
-features_train = features_train[:len(features_train)/100] 
-labels_train = labels_train[:len(labels_train)/100] 
+#features_train = features_train[:len(features_train)/100] 
+#labels_train = labels_train[:len(labels_train)/100] 
 
 clf = SVC(kernel='rbf', C=10000)
 print("SVC with kernel rbf and C value 10000")
@@ -36,6 +36,5 @@ print "prediction time:", round(time()-t1, 3), "s"
 score = accuracy_score(labels_test, y_pred)
 print(score)
 
-chosen_label_indices = [10, 26, 50]
-for index in chosen_label_indices:
-    print("For index %d we have label %d" %(index, y_pred[index]))
+Chris_emails = [label for label in y_pred if label == 1.0]
+print("I have found %d emails labeled as Christ (1.0)" % len(Chris_emails))
