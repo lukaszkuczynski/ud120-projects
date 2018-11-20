@@ -38,9 +38,15 @@ def getSVM(features, labels):
     clff.fit(features, labels)
     return clff
 
+def getTree(features_train, labels_train):
+    from sklearn.tree import DecisionTreeClassifier
+    dtc = DecisionTreeClassifier()
+    dtc.fit(features_train, labels_train)
+    return dtc
 
-clf = getSVM(features_train, labels_train)
 
+#clf = getSVM(features_train, labels_train)
+clf = getTree(features_train, labels_train)
 # clf = None
 
 try:
