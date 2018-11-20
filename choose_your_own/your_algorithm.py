@@ -44,22 +44,25 @@ def getTree(features_train, labels_train, split=2):
     dtc.fit(features_train, labels_train)
     return dtc
 
-def submitAccuracies(clf, features_test, labels_test):
-    from sklearn.metrics import accuracy_score
-    y_pred = clf.predict(features_test)
-    acc = accuracy_score(labels_test, y_pred)
-    return {"acc":round(acc,3)}
+
+
 
 #clf = getSVM(features_train, labels_train)
 clf2 = getTree(features_train, labels_train, 2)
 clf50 = getTree(features_train, labels_train, 50)
 
-#acc = submitAccuracies(clf, features_test, labels_test)
-#print(acc)
+from sklearn.metrics import accuracy_score
+y_pred = clf2.predict(features_test)
+acc_min_samples_split_2 = accuracy_score(labels_test, y_pred)
+y_pred = clf50.predict(features_test)
+acc_min_samples_split_50 = accuracy_score(labels_test, y_pred)
+acc = {"acc_min_samples_split_2":round(acc_min_samples_split_2,3),
+          "acc_min_samples_split_50":round(acc_min_samples_split_50,3)}
+print(acc)
 
-try:
-    prettyPicture(clf2, features_test, labels_test)
+#try:
+#    prettyPicture(clf2, features_test, labels_test)
 #    prettyPicture(clf50, features_test, labels_test)
-    plt.show()
-except NameError:
-    pass
+#    plt.show()
+#except NameError:
+#    pass
