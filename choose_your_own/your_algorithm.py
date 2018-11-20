@@ -38,9 +38,9 @@ def getSVM(features, labels):
     clff.fit(features, labels)
     return clff
 
-def getTree(features_train, labels_train):
+def getTree(features_train, labels_train, split=2):
     from sklearn.tree import DecisionTreeClassifier
-    dtc = DecisionTreeClassifier()
+    dtc = DecisionTreeClassifier(min_samples_split=split)
     dtc.fit(features_train, labels_train)
     return dtc
 
@@ -51,13 +51,15 @@ def submitAccuracies(clf, features_test, labels_test):
     return {"acc":round(acc,3)}
 
 #clf = getSVM(features_train, labels_train)
-clf = getTree(features_train, labels_train)
-# clf = None
-acc = submitAccuracies(clf, features_test, labels_test)
-print(acc)
+clf2 = getTree(features_train, labels_train, 2)
+clf50 = getTree(features_train, labels_train, 50)
 
-#try:
-#    prettyPicture(clf, features_test, labels_test)
-#    plt.show()
-#except NameError:
-#    pass
+#acc = submitAccuracies(clf, features_test, labels_test)
+#print(acc)
+
+try:
+    prettyPicture(clf2, features_test, labels_test)
+#    prettyPicture(clf50, features_test, labels_test)
+    plt.show()
+except NameError:
+    pass
