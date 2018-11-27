@@ -38,8 +38,8 @@ def features_no():
     no = len(features_test[0])
     print("It is the number of features %d" % no)
 
-#train()
-features_no()
+train()
+#features_no()
 
 
 #########################################################
