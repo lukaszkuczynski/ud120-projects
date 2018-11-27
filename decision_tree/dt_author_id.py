@@ -34,7 +34,13 @@ def train():
     score = accuracy_score(labels_test, Y)
     print("Score is, my dear, %f" % score)
 
-train()
+def features_no():
+    no = len(features_test[0])
+    print("It is the number of features %d" % no)
+
+#train()
+features_no()
+
 
 #########################################################
 
