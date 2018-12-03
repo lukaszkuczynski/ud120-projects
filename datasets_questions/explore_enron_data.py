@@ -21,3 +21,5 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r")
 
 
 print("We have %d people in the dataset" % len(enron_data.keys()))
+
+print("For the first person we have %d features" % len(enron_data.items()[0][1]))
