@@ -26,3 +26,10 @@ print("For the first person we have %d features" % len(enron_data.items()[0][1])
 
 poi = filter(lambda a: a['poi'], enron_data.values())
 print("In whole dataset we have %d POIs" % len(poi))
+
+with open("../final_project/poi_names.txt") as f:
+    for i,l in enumerate(f):
+        pass
+    i = i + 1
+total_name_lines_count = i - 2
+print("In txt file we have %d POI" % total_name_lines_count)
