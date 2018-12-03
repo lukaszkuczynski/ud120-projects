@@ -35,3 +35,4 @@ total_name_lines_count = i - 2
 print("In txt file we have %d POI" % total_name_lines_count)
 
 print("Mr James has total stock of %d" % enron_data["PRENTICE JAMES"]['total_stock_value'])
+print("Mr Wesley sent %d emails to POIs" % enron_data["COLWELL WESLEY"]['from_this_person_to_poi'])
