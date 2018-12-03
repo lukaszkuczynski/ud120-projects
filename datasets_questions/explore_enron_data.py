@@ -20,3 +20,4 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
 
+print("We have %d people in the dataset" % len(enron_data.keys()))
