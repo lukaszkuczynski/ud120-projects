@@ -36,3 +36,6 @@ print("In txt file we have %d POI" % total_name_lines_count)
 
 print("Mr James has total stock of %d" % enron_data["PRENTICE JAMES"]['total_stock_value'])
 print("Mr Wesley sent %d emails to POIs" % enron_data["COLWELL WESLEY"]['from_this_person_to_poi'])
+print("Mr Jeffrey had %d stock options" % enron_data["SKILLING JEFFREY K"]['exercised_stock_options'])
+
+#print enron_data.items()[0][1]
