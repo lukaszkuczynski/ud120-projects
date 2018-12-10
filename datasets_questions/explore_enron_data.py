@@ -38,4 +38,7 @@ print("Mr James has total stock of %d" % enron_data["PRENTICE JAMES"]['total_sto
 print("Mr Wesley sent %d emails to POIs" % enron_data["COLWELL WESLEY"]['from_this_person_to_poi'])
 print("Mr Jeffrey had %d stock options" % enron_data["SKILLING JEFFREY K"]['exercised_stock_options'])
 
-#print enron_data.items()[0][1]
+print("Grube ryby")
+print("Kenneth Lay has total payments = %d" % enron_data["LAY KENNETH L"]['total_payments'])
+print("Andrew Fastow has total payments = %d" % enron_data["FASTOW ANDREW S"]['total_payments'])
+print("Jeffrey Skilling had total payments = %d" % enron_data["SKILLING JEFFREY K"]['total_payments'])
