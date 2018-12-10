@@ -42,3 +42,10 @@ print("Grube ryby")
 print("Kenneth Lay has total payments = %d" % enron_data["LAY KENNETH L"]['total_payments'])
 print("Andrew Fastow has total payments = %d" % enron_data["FASTOW ANDREW S"]['total_payments'])
 print("Jeffrey Skilling had total payments = %d" % enron_data["SKILLING JEFFREY K"]['total_payments'])
+
+emails = map(lambda x:x['email_address'], enron_data.values())
+quantified_emails = filter(lambda value: value != 'NaN', emails)
+salaries = map(lambda x:x['salary'], enron_data.values())
+quantified_salaries = filter(lambda value: value != 'NaN', salaries)
+
+print("We have %d quantified emails and %d quantified salaries" % (len(quantified_emails),len(quantified_salaries)))
