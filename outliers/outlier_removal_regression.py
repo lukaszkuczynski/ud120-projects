@@ -30,7 +30,8 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(ages_train, net_worths_train)
 print("Slope now is %f" % reg.coef_)
-
+score = reg.score(ages_test, net_worths_test)
+print("So the score is %f" % score)
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
