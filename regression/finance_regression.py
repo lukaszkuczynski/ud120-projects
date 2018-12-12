@@ -22,6 +22,7 @@ dictionary = pickle.load( open("../final_project/final_project_dataset_modified.
 ### list the features you want to look at--first item in the 
 ### list will be the "target" feature
 features_list = ["bonus", "long_term_incentive"]
+features_list = ["bonus", "salary"]
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True)
 target, features = targetFeatureSplit( data )
 
@@ -42,11 +43,13 @@ test_color = "r"
 from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(feature_train, target_train)
-print(reg.coef_)
-print(reg.intercept_)
+print("Fitting on training dataset")
+print("Slope is %f " % reg.coef_)
+print("Intercept is %f " % reg.intercept_)
 
 score = reg.score(feature_test, target_test)
 print("Score is %f" % score)
+
 
 
 
@@ -69,6 +72,13 @@ try:
     plt.plot( feature_test, reg.predict(feature_test) )
 except NameError:
     pass
+print("Fitting on testing dataset")
+reg.fit(feature_test, target_test)
+plt.plot(feature_train, reg.predict(feature_train), color="r") 
+print("Slope is %f " % reg.coef_)
+print("Intercept is %f " % reg.intercept_)
+
+
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
