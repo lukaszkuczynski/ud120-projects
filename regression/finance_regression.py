@@ -39,8 +39,11 @@ test_color = "r"
 ### "r" to differentiate training points from test points.
 
 
-
-
+from sklearn.linear_model import LinearRegression
+reg = LinearRegression()
+reg.fit(feature_train, target_train)
+print(reg.coef_)
+print(reg.intercept_)
 
 
 
