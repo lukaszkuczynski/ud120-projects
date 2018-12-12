@@ -45,7 +45,7 @@ reg.fit(feature_train, target_train)
 print(reg.coef_)
 print(reg.intercept_)
 
-score = reg.score(feature_train, target_train)
+score = reg.score(feature_test, target_test)
 print("Score is %f" % score)
 
 
