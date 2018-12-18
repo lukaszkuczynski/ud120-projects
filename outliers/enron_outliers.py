@@ -27,3 +27,8 @@ not_nan_salaries = filter(lambda person:person[1]['salary'] != 'NaN', data_dict.
 float_salaries = map(lambda person:(person[0], float(person[1]['salary'])), not_nan_salaries)
 sorted_salaries = sorted(float_salaries, key=lambda x:x[1], reverse=True)
 print(sorted_salaries[:5])
+
+not_nan_bonuses = filter(lambda person:person[1]['bonus'] != 'NaN', data_dict.items())
+float_bonuses = map(lambda person:(person[0], float(person[1]['bonus']), float(person[1]['salary'])), not_nan_bonuses)
+sorted_bonuses = sorted(float_bonuses, key=lambda x:x[1], reverse=True)
+print(sorted_bonuses[:5])
