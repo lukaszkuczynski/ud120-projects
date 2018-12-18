@@ -9,6 +9,7 @@ from feature_format import featureFormat, targetFeatureSplit
 
 ### read in data dictionary, convert to numpy array
 data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r") )
+data_dict.pop('TOTAL', 0)
 features = ["salary", "bonus"]
 data = featureFormat(data_dict, features)
 
@@ -26,4 +27,3 @@ not_nan_salaries = filter(lambda person:person[1]['salary'] != 'NaN', data_dict.
 float_salaries = map(lambda person:(person[0], float(person[1]['salary'])), not_nan_salaries)
 sorted_salaries = sorted(float_salaries, key=lambda x:x[1], reverse=True)
 print(sorted_salaries[:5])
-#print(data_dict.values()[:2])
