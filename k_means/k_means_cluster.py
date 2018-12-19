@@ -66,12 +66,9 @@ plt.show()
 ### for the data and store them to a list called pred
 
 from sklearn.cluster import KMeans
-x = data [:, 1]
-x_reshaped = x.reshape(-1, 1)
-y = data [:, 2]
-kmeans = KMeans(n_clusters=2)
-kmeans_fit = kmeans.fit(x_reshaped,y)
-pred = kmeans_fit.predict(x_reshaped)
+X = data[:, 1:3]
+kmeans = KMeans(n_clusters=2).fit(X)
+pred = kmeans.predict(X)
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
