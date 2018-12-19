@@ -44,6 +44,7 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r")
 data_dict.pop("TOTAL", 0)
 
 
+
 ### the input features we want to use 
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
 feature_1 = "salary"
@@ -77,3 +78,13 @@ try:
     Draw(pred, finance_features, poi, mark_poi=False, name="clusters.pdf", f1_name=feature_1, f2_name=feature_2)
 except NameError:
     print "no predictions object named pred found, no clusters to plot"
+
+
+print("Calculating min/max exercised_stock_options")
+not_nan_stock = filter(lambda person:person[1]['exercised_stock_options'] != 'NaN', data_dict.items())
+float_stocks = map(lambda person:(person[0], float(person[1]['exercised_stock_options'])), not_nan_stock)
+sorted_stocks = sorted(float_stocks, key=lambda x:x[1], reverse=True)
+print("TOP 5")
+print(sorted_stocks[:5])
+print("the lowest 5")
+print(sorted_stocks[-5:])
