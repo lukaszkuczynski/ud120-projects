@@ -80,11 +80,15 @@ except NameError:
     print "no predictions object named pred found, no clusters to plot"
 
 
-print("Calculating min/max exercised_stock_options")
-not_nan_stock = filter(lambda person:person[1]['exercised_stock_options'] != 'NaN', data_dict.items())
-float_stocks = map(lambda person:(person[0], float(person[1]['exercised_stock_options'])), not_nan_stock)
-sorted_stocks = sorted(float_stocks, key=lambda x:x[1], reverse=True)
-print("TOP 5")
-print(sorted_stocks[:5])
-print("the lowest 5")
-print(sorted_stocks[-5:])
+def min_max_per_feature(feature_name):
+    print("Calculating min/max %s" % feature_name)
+    not_nan_values = filter(lambda person:person[1][feature_name] != 'NaN', data_dict.items())
+    float_values = map(lambda person:(person[0], float(person[1][feature_name])), not_nan_values)
+    sorted_values = sorted(float_values, key=lambda x:x[1], reverse=True)
+    print("TOP 5")
+    print(sorted_values[:5])
+    print("the lowest 5")
+    print(sorted_values[-5:])
+
+min_max_per_feature('exercised_stock_options')
+min_max_per_feature('salary')
