@@ -69,6 +69,14 @@ plt.show()
 
 from sklearn.cluster import KMeans
 X = data[:, 1:4]
+
+from sklearn.preprocessing import MinMaxScaler
+X_scaled = MinMaxScaler().fit_transform(X)
+print(X[1])
+print(X_scaled[1])
+X = X_scaled
+print(X[1])
+
 kmeans = KMeans(n_clusters=2).fit(X)
 pred = kmeans.predict(X)
 
@@ -90,5 +98,5 @@ def min_max_per_feature(feature_name):
     print("the lowest 5")
     print(sorted_values[-5:])
 
-min_max_per_feature('exercised_stock_options')
-min_max_per_feature('salary')
+#min_max_per_feature('exercised_stock_options')
+#min_max_per_feature('salary')
