@@ -12,3 +12,4 @@ my_dataset.pkl
 my_feature_list.pkl
 .idea
 .ipynb_checkpoints
+.vscode
