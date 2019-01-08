@@ -41,8 +41,10 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
     for path in from_person:
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
-        temp_counter += 1
-        if temp_counter < 200:
+        # temp_counter += 1
+        # if temp_counter < 200:
+        if True:
+
             path = os.path.join('..', path[:-1])
             print "--" + path
             email = open(path, "r")
@@ -78,5 +80,13 @@ print(word_data[152])
 
 
 ### in Part 4, do TfIdf vectorization here
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer(stop_words='english')
+vectorizer.fit_transform(word_data)
+feats = vectorizer.get_feature_names()
+print(len(feats))
+
 
 
