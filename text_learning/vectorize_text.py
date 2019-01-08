@@ -88,5 +88,5 @@ vectorizer.fit_transform(word_data)
 feats = vectorizer.get_feature_names()
 print(len(feats))
 
-
-
+word_34579 = feats[34597]
+print("Word 34597 is '%s'" % word_34579)
