@@ -44,3 +44,9 @@ dtc = DecisionTreeClassifier().fit(features_train, labels_train)
 acc = accuracy_score(dtc.predict(features_test), labels_test)
 print("Accuracy is %f" % acc)
 
+for n, importance in enumerate(dtc.feature_importances_):
+    if importance > 0.2:
+        print("%3d: %f" % (n, importance))
+    
+
+
