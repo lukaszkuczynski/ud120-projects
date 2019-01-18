@@ -28,7 +28,7 @@ from sklearn.datasets import fetch_lfw_people
 from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.decomposition import RandomizedPCA
+from sklearn.decomposition import RandomizedPCA, PCA
 from sklearn.svm import SVC
 
 # Display progress logs on stdout
@@ -71,6 +71,7 @@ n_components = 150
 print "Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0])
 t0 = time()
 pca = RandomizedPCA(n_components=n_components, whiten=True).fit(X_train)
+# pca = PpCA(n_components=n_components, svd_solver='randomized', whiten=True).fit(X_train)
 print "done in %0.3fs" % (time() - t0)
 
 eigenfaces = pca.components_.reshape((n_components, h, w))
@@ -141,6 +142,10 @@ plot_gallery(X_test, prediction_titles, h, w)
 # plot the gallery of the most significative eigenfaces
 
 eigenface_titles = ["eigenface %d" % i for i in range(eigenfaces.shape[0])]
-plot_gallery(eigenfaces, eigenface_titles, h, w)
+# plot_gallery(eigenfaces, eigenface_titles, h, w)
 
-pl.show()
+# pl.show()
+
+ratio = pca.explained_variance_ratio_
+print("1st element explains %.2f of variance" % ratio[0])
+print("2nd element explains %.2f of variance" % ratio[1])
