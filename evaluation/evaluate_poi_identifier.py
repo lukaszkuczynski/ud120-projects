@@ -52,3 +52,6 @@ from sklearn.metrics import confusion_matrix
 confu = confusion_matrix(y_test, y_pred)
 print(confu)
 print("True positives count is %d" % confu[1][1])
+
+from sklearn.metrics import precision_score, recall_score
+print("Precision is %.3f" % precision_score(y_test, y_pred))
