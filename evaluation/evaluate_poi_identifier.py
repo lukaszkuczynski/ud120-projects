@@ -41,4 +41,5 @@ X_train, X_test, y_train, y_test = train_test_split(features, labels, random_sta
 # print("Accuracy is %.3f" % acc)
 
 pois = filter(lambda x: x==1, y_test)
-print(len(pois))
+print("We have %d POIs in the test set" % len(pois))
+print("We have total of %d people in the test set" % len(y_test))
