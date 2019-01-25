@@ -33,9 +33,12 @@ dtc = DecisionTreeClassifier()
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(features, labels, random_state=42, test_size=0.3)
-dtc.fit(X_train, y_train)
+# dtc.fit(X_train, y_train)
 
-from sklearn.metrics import accuracy_score
-y_pred = dtc.predict(X_test)
-acc = accuracy_score(y_test, y_pred)
-print("Accuracy is %.3f" % acc)
+# from sklearn.metrics import accuracy_score
+# y_pred = dtc.predict(X_test)
+# acc = accuracy_score(y_test, y_pred)
+# print("Accuracy is %.3f" % acc)
+
+pois = filter(lambda x: x==1, y_test)
+print(len(pois))
