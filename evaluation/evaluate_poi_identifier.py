@@ -55,3 +55,4 @@ print("True positives count is %d" % confu[1][1])
 
 from sklearn.metrics import precision_score, recall_score
 print("Precision is %.3f" % precision_score(y_test, y_pred))
+print("Recall is %.3f" % recall_score(y_test, y_pred))
