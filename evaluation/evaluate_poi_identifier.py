@@ -56,3 +56,21 @@ print("True positives count is %d" % confu[1][1])
 from sklearn.metrics import precision_score, recall_score
 print("Precision is %.3f" % precision_score(y_test, y_pred))
 print("Recall is %.3f" % recall_score(y_test, y_pred))
+
+# 15.34 , random example
+
+print("="*30)
+print("Following there is an analysis of the example starting 15.34")
+
+predictions = [0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1] 
+true_labels = [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0]
+
+zipped = zip(true_labels, predictions)
+TP = filter(lambda tuple: tuple[0] and tuple[1], zipped)
+print("TP count is %d" % len(TP))
+TN = filter(lambda tuple: tuple[0] == 0 and tuple[1] == 0, zipped)
+print("TN count is %d" % len(TN))
+FP = filter(lambda tuple: tuple[0] == 0 and tuple[1] == 1, zipped)
+print("FP count is %d" % len(FP))
+FN = filter(lambda tuple: tuple[0] == 1 and tuple[1] == 0, zipped)
+print("FN count is %d" % len(FN))
