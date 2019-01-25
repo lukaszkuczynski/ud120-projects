@@ -39,4 +39,4 @@ dtc.fit(X_train, y_train)
 from sklearn.metrics import accuracy_score
 y_pred = dtc.predict(X_test)
 acc = accuracy_score(y_test, y_pred)
-print("Accuracy is %.2f" % acc)
+print("Accuracy is %.3f" % acc)
